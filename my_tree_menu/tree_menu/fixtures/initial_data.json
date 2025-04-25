@@ -1,0 +1,46 @@
+[
+    {
+        "model": "tree_menu.menu",
+        "pk": 1,
+        "fields": {
+            "name": "main_menu",
+            "slug": "main-menu"
+        }
+    },
+    {
+        "model": "tree_menu.menuitem",
+        "pk": 1,
+        "fields": {
+            "menu": 1,
+            "parent": null,
+            "title": "Home",
+            "url": "/",
+            "named_url": "",
+            "order": 0
+        }
+    },
+    {
+        "model": "tree_menu.menuitem",
+        "pk": 2,
+        "fields": {
+            "menu": 1,
+            "parent": null,
+            "title": "Products",
+            "url": "/products/",
+            "named_url": "products",
+            "order": 1
+        }
+    },
+    {
+        "model": "tree_menu.menuitem",
+        "pk": 3,
+        "fields": {
+            "menu": 1,
+            "parent": 2,
+            "title": "Electronics",
+            "url": "/products/electronics/",
+            "named_url": "",
+            "order": 0
+        }
+    }
+]

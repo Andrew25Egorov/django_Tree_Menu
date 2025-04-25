@@ -1,0 +1,27 @@
+{% if menu %}
+<ul class="menu">
+    {% for item in menu_tree %}
+        <li class="menu-item{% if item.is_active %} active{% endif %}{% if item.is_parent_active %} parent-active{% endif %}">
+            <a href="{{ item.item.get_url }}"{% if item.is_active %} class="active"{% endif %}>
+                {{ item.item.title }}
+            </a>
+            {% if item.children and item.is_parent_active %}
+                <ul class="submenu">
+                    {% for child in item.children %}
+                        <li class="submenu-item{% if child.is_active %} active{% endif %}{% if child.is_parent_active %} parent-active{% endif %}">
+                            <a href="{{ child.item.get_url }}"{% if child.is_active %} class="active"{% endif %}>
+                                {{ child.item.title }}
+                            </a>
+                            {% if child.children and child.is_parent_active %}
+                                <ul class="submenu">
+                                    {% include "tree_menu/menu_level.html" with items=child.children %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
