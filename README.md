@@ -1,4 +1,3 @@
-```markdown
 # Django Tree Menu
 
 ![Django](https://img.shields.io/badge/Django-3.2.16-green)
